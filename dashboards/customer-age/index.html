@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Age Identification - Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
+            color: #e2e8f0;
+            padding: 20px;
+        }
+        
+        .dashboard {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .dashboard-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #14b8a6;
+            margin-bottom: 8px;
+        }
+        
+        .dashboard-subtitle {
+            font-size: 0.875rem;
+            color: #94a3b8;
+        }
+        
+        .placeholder {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px dashed rgba(20, 184, 166, 0.3);
+            border-radius: 16px;
+            padding: 60px 40px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .placeholder-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: rgba(20, 184, 166, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .placeholder-icon svg {
+            width: 40px;
+            height: 40px;
+            stroke: #14b8a6;
+        }
+        
+        .placeholder h3 {
+            font-size: 1.25rem;
+            color: #f1f5f9;
+            margin-bottom: 12px;
+        }
+        
+        .placeholder p {
+            font-size: 0.875rem;
+            color: #94a3b8;
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .metric-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        
+        .metric-label {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+        
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #14b8a6;
+        }
+        
+        .metric-unit {
+            font-size: 0.875rem;
+            color: #94a3b8;
+            margin-left: 4px;
+        }
+        
+        .note {
+            background: rgba(20, 184, 166, 0.1);
+            border: 1px solid rgba(20, 184, 166, 0.3);
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 0.875rem;
+            color: #e2e8f0;
+            text-align: center;
+        }
+        
+        .note code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #14b8a6;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="dashboard-header">
+            <h1 class="dashboard-title">Customer Age Identification Model</h1>
+            <p class="dashboard-subtitle">Deep Learning | TensorFlow | Computer Vision</p>
+        </div>
+        
+        <div class="placeholder">
+            <div class="placeholder-icon">
+                <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                    <circle cx="12" cy="12" r="3"/>
+                </svg>
+            </div>
+            <h3>Interactive Dashboard Coming Soon</h3>
+            <p>
+                This dashboard will showcase the customer age identification model results, 
+                including prediction accuracy, model performance metrics, and sample predictions.
+            </p>
+        </div>
+        
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-label">Mean Absolute Error</div>
+                <div class="metric-value">8.3<span class="metric-unit">years</span></div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Model Type</div>
+                <div class="metric-value" style="font-size: 1.5rem;">ResNet50</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Approach</div>
+                <div class="metric-value" style="font-size: 1.5rem;">Transfer Learning</div>
+            </div>
+        </div>
+        
+        <div class="note">
+            <strong>Dashboard Placeholder:</strong> Replace this file with your actual interactive dashboard.
+            Place your HTML file at <code>dashboards/customer-age/index.html</code>
+        </div>
+    </div>
+</body>
+</html>
