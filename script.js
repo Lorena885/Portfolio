@@ -348,6 +348,7 @@ function openProjectModal(projectId) {
     modalTitle.textContent = project.title;
     modalGithubLink.href = project.githubLink;
     modalGithubLink.style.display = project.githubLink && project.githubLink !== '#' ? 'flex' : 'none';
+    const fullDashboardLink = project.liveAppLink || (project.dashboardPath && project.dashboardPath.startsWith('http') ? project.dashboardPath : '');
     
     modalBody.innerHTML = `
         <div class="modal-content-wrapper">
@@ -398,8 +399,8 @@ function openProjectModal(projectId) {
                             </svg>
                             View on GitHub
                         </a>
-                        ${project.liveAppLink ? `
-                        <a href="${project.liveAppLink}" target="_blank" rel="noopener noreferrer" class="modal-link">
+                        ${fullDashboardLink ? `
+                        <a href="${fullDashboardLink}" target="_blank" rel="noopener noreferrer" class="modal-link">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
                                 <polyline points="15 3 21 3 21 9"/>
@@ -416,8 +417,8 @@ function openProjectModal(projectId) {
                 <div class="modal-dashboard-header">
                     <span class="modal-dashboard-title">Interactive Dashboard</span>
                     <div class="modal-dashboard-actions">
-                        ${project.liveAppLink ? `
-                        <a href="${project.liveAppLink}" target="_blank" rel="noopener noreferrer" class="modal-dashboard-link">
+                        ${fullDashboardLink ? `
+                        <a href="${fullDashboardLink}" target="_blank" rel="noopener noreferrer" class="modal-dashboard-link">
                             Open Full Dashboard
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
