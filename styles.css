@@ -848,25 +848,51 @@ img {
 
 .timeline {
     position: relative;
-    max-width: 700px;
+    max-width: var(--container-max);
     margin: 0 auto;
-    padding-left: var(--spacing-2xl);
+    display: grid;
+    grid-template-columns: repeat(4, minmax(320px, 360px));
+    gap: var(--spacing-lg);
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-md);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.timeline::-webkit-scrollbar {
+    height: 8px;
+}
+
+.timeline::-webkit-scrollbar-track {
+    background: rgba(31, 61, 43, 0.06);
+    border-radius: var(--radius-full);
+}
+
+.timeline::-webkit-scrollbar-thumb {
+    background: rgba(74, 139, 101, 0.35);
+    border-radius: var(--radius-full);
+}
+
+.timeline::-webkit-scrollbar-thumb:hover {
+    background: rgba(74, 139, 101, 0.5);
 }
 
 .timeline::before {
     content: '';
     position: absolute;
-    left: 9px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(180deg, var(--accent-green) 0%, rgba(74, 139, 101, 0.2) 100%);
+    left: 180px;
+    width: calc((360px + var(--spacing-lg)) * 3);
+    top: 7px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-green) 0%, rgba(74, 139, 101, 0.2) 100%);
     border-radius: 2px;
 }
 
 .timeline-item {
     position: relative;
-    padding-bottom: var(--spacing-2xl);
+    padding-top: var(--spacing-xl);
+    scroll-snap-align: start;
 }
 
 .timeline-item:last-child {
@@ -875,8 +901,9 @@ img {
 
 .timeline-marker {
     position: absolute;
-    left: calc(-1 * var(--spacing-2xl) + 2px);
-    top: 6px;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
     width: 14px;
     height: 14px;
     background: var(--bg-cream);
@@ -886,6 +913,7 @@ img {
 }
 
 .timeline-card {
+    height: 100%;
     padding: var(--spacing-xl);
     background: var(--bg-card);
     border-radius: var(--radius-lg);
@@ -1574,6 +1602,17 @@ img {
     }
 }
 
+@media (max-width: 1100px) {
+    .timeline {
+        grid-template-columns: repeat(4, 280px);
+    }
+
+    .timeline::before {
+        left: 140px;
+        width: calc((280px + var(--spacing-lg)) * 3);
+    }
+}
+
 @media (max-width: 992px) {
     .hero-photo {
         width: 260px;
@@ -1718,7 +1757,7 @@ img {
     }
     
     .timeline {
-        padding-left: var(--spacing-xl);
+        padding-left: 0;
     }
     
     .contact-card {
