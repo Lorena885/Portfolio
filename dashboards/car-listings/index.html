@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US Car Listings Analysis - Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #102018 0%, #1f3d2b 100%);
+            min-height: 100vh;
+            color: #eef7f1;
+            padding: 20px;
+        }
+        .dashboard {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+        .dashboard-title {
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: #7dd3a7;
+            margin-bottom: 8px;
+        }
+        .dashboard-subtitle {
+            font-size: 0.9rem;
+            color: #b8c9bd;
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .metric-card,
+        .chart-card,
+        .insight-card {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 12px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
+        }
+        .metric-card {
+            padding: 18px;
+        }
+        .metric-label {
+            font-size: 0.72rem;
+            color: #b8c9bd;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+        .metric-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #7dd3a7;
+        }
+        .metric-note {
+            margin-top: 4px;
+            font-size: 0.8rem;
+            color: #d6e2da;
+        }
+        .charts-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 18px;
+            margin-bottom: 18px;
+        }
+        .chart-card {
+            padding: 20px;
+            min-height: 260px;
+        }
+        .chart-title {
+            font-size: 0.82rem;
+            color: #d6e2da;
+            font-weight: 600;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .bar-row {
+            display: grid;
+            grid-template-columns: 72px 1fr 54px;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 14px;
+            font-size: 0.84rem;
+        }
+        .bar-label {
+            color: #eef7f1;
+            text-transform: capitalize;
+        }
+        .bar-track {
+            height: 12px;
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 999px;
+            overflow: hidden;
+        }
+        .bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #7dd3a7, #d7b56d);
+            border-radius: 999px;
+        }
+        .bar-value {
+            color: #b8c9bd;
+            text-align: right;
+        }
+        .scatter {
+            position: relative;
+            height: 210px;
+            border-left: 1px solid rgba(255, 255, 255, 0.22);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+            margin: 8px 10px 0 26px;
+            background:
+                linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+            background-size: 100% 52px, 25% 100%;
+        }
+        .dot {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #7dd3a7;
+            box-shadow: 0 0 0 4px rgba(125, 211, 167, 0.14);
+        }
+        .dot.good { background: #7dd3a7; }
+        .dot.fair { background: #d7b56d; box-shadow: 0 0 0 4px rgba(215, 181, 109, 0.14); }
+        .dot.low { background: #89a8e8; box-shadow: 0 0 0 4px rgba(137, 168, 232, 0.14); }
+        .axis-label {
+            font-size: 0.72rem;
+            color: #b8c9bd;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+        .insight-card {
+            padding: 18px;
+        }
+        .insight-card h3 {
+            color: #7dd3a7;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+        .insight-card p {
+            color: #d6e2da;
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+        .link-note {
+            margin-top: 18px;
+            background: rgba(125, 211, 167, 0.12);
+            border: 1px solid rgba(125, 211, 167, 0.26);
+            border-radius: 10px;
+            padding: 14px;
+            text-align: center;
+            color: #d6e2da;
+            font-size: 0.86rem;
+        }
+        .link-note a {
+            color: #7dd3a7;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        @media (max-width: 760px) {
+            .charts-grid,
+            .insights-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="dashboard-header">
+            <h1 class="dashboard-title">US Second-Hand Car Listings Analysis</h1>
+            <p class="dashboard-subtitle">Streamlit dashboard | Price, mileage, condition, and vehicle type exploration</p>
+        </div>
+
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-label">Total Listings</div>
+                <div class="metric-value">51,525</div>
+                <div class="metric-note">US used vehicle ads</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Average Price</div>
+                <div class="metric-value">$12,132</div>
+                <div class="metric-note">Across all listings</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Average Odometer</div>
+                <div class="metric-value">115,553 km</div>
+                <div class="metric-note">Mileage benchmark</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Most Common Condition</div>
+                <div class="metric-value">Excellent</div>
+                <div class="metric-note">24,773 listings</div>
+            </div>
+        </div>
+
+        <div class="charts-grid">
+            <div class="chart-card">
+                <div class="chart-title">Price vs Odometer Pattern</div>
+                <div class="scatter" aria-label="Representative scatter plot showing lower prices at higher odometer readings">
+                    <span class="dot good" style="left: 8%; bottom: 74%;"></span>
+                    <span class="dot good" style="left: 16%; bottom: 62%;"></span>
+                    <span class="dot fair" style="left: 24%; bottom: 56%;"></span>
+                    <span class="dot good" style="left: 32%; bottom: 48%;"></span>
+                    <span class="dot fair" style="left: 40%; bottom: 39%;"></span>
+                    <span class="dot low" style="left: 50%; bottom: 34%;"></span>
+                    <span class="dot fair" style="left: 58%; bottom: 28%;"></span>
+                    <span class="dot low" style="left: 68%; bottom: 22%;"></span>
+                    <span class="dot low" style="left: 78%; bottom: 16%;"></span>
+                    <span class="dot fair" style="left: 86%; bottom: 13%;"></span>
+                </div>
+                <div class="axis-label">Odometer increases left to right; price generally declines as mileage rises.</div>
+            </div>
+
+            <div class="chart-card">
+                <div class="chart-title">Top Vehicle Types</div>
+                <div class="bar-row">
+                    <span class="bar-label">SUV</span>
+                    <span class="bar-track"><span class="bar-fill" style="width: 100%;"></span></span>
+                    <span class="bar-value">12,405</span>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Truck</span>
+                    <span class="bar-track"><span class="bar-fill" style="width: 99.6%;"></span></span>
+                    <span class="bar-value">12,353</span>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Sedan</span>
+                    <span class="bar-track"><span class="bar-fill" style="width: 98%;"></span></span>
+                    <span class="bar-value">12,154</span>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Pickup</span>
+                    <span class="bar-track"><span class="bar-fill" style="width: 56%;"></span></span>
+                    <span class="bar-value">6,988</span>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Coupe</span>
+                    <span class="bar-track"><span class="bar-fill" style="width: 19%;"></span></span>
+                    <span class="bar-value">2,303</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="insights-grid">
+            <div class="insight-card">
+                <h3>Market Composition</h3>
+                <p>SUVs, trucks, and sedans dominate listing volume, making them the strongest comparison groups for pricing benchmarks and buyer research.</p>
+            </div>
+            <div class="insight-card">
+                <h3>Decision Support</h3>
+                <p>The live Streamlit app lets users filter by condition, type, year, and odometer to compare similar listings and spot pricing patterns quickly.</p>
+            </div>
+        </div>
+
+        <div class="link-note">
+            Local preview of the portfolio modal. The full interactive app is available through the <a href="https://proyecto-sprint7-0nrf.onrender.com" target="_blank" rel="noopener noreferrer">Live App</a> button.
+        </div>
+    </div>
+</body>
+</html>
