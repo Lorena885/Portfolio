@@ -130,7 +130,7 @@ Shift from reactive churn management to proactive retention strategies.`,
         title: "US Second-Hand Car Listings Analysis",
         category: "analytics",
         categoryLabel: "Analytics",
-        image: null,
+        image: "assets/project-pictures/car-listings.png",
         summary: "Built an interactive Streamlit and Plotly dashboard to explore 51,525 used car listings across the United States. The app helps buyers, sellers, and analysts understand pricing patterns, mileage trends, condition effects, and vehicle type composition through filters, KPI metrics, and dynamic charts.",
         overview: "This project analyzes the US second-hand car market using an interactive dashboard built with Python, Streamlit, Plotly, and Pandas. Users can filter listings by vehicle condition, type, model year, and odometer reading to explore how price, mileage, and condition interact across the market.",
         businessProblem: "The second-hand car market is highly fragmented: prices vary significantly based on mileage, condition, vehicle type, and model year. Without a visual way to explore these variables together, buyers and sellers struggle to make informed pricing and purchasing decisions.",
@@ -415,7 +415,19 @@ function openProjectModal(projectId) {
             <div class="modal-dashboard-panel">
                 <div class="modal-dashboard-header">
                     <span class="modal-dashboard-title">Interactive Dashboard</span>
-                    <span class="modal-dashboard-badge">Live Preview</span>
+                    <div class="modal-dashboard-actions">
+                        ${project.liveAppLink ? `
+                        <a href="${project.liveAppLink}" target="_blank" rel="noopener noreferrer" class="modal-dashboard-link">
+                            Open Full Dashboard
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                <polyline points="15 3 21 3 21 9"/>
+                                <line x1="10" y1="14" x2="21" y2="3"/>
+                            </svg>
+                        </a>
+                        ` : ''}
+                        <span class="modal-dashboard-badge">Live Preview</span>
+                    </div>
                 </div>
                 <div class="modal-iframe-container">
                     <iframe 
