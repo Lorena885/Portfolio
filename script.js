@@ -131,20 +131,20 @@ Shift from reactive churn management to proactive retention strategies.`,
         category: "analytics",
         categoryLabel: "Analytics",
         image: "assets/project-pictures/car-listings.png",
-        summary: "Built an interactive Streamlit and Plotly dashboard to explore 51,525 used car listings across the United States. The app helps buyers, sellers, and analysts understand pricing patterns, mileage trends, condition effects, and vehicle type composition through filters, KPI metrics, and dynamic charts.",
+        summary: "Built an interactive Streamlit and Plotly dashboard to explore 26,470 used car listings across the United States. The app helps buyers, sellers, and analysts understand pricing patterns, mileage trends, condition effects, and vehicle type composition through filters, KPI metrics, and dynamic charts.",
         overview: "This project analyzes the US second-hand car market using an interactive dashboard built with Python, Streamlit, Plotly, and Pandas. Users can filter listings by vehicle condition, type, model year, and odometer reading to explore how price, mileage, and condition interact across the market.",
         businessProblem: "The second-hand car market is highly fragmented: prices vary significantly based on mileage, condition, vehicle type, and model year. Without a visual way to explore these variables together, buyers and sellers struggle to make informed pricing and purchasing decisions.",
-        methodology: `<strong>Data Preparation:</strong> Loaded and explored 51,525 US vehicle listings, focusing on price, odometer readings, condition, model year, and vehicle type. Prepared the dataset for interactive filtering and visual exploration.<br><br>
+        methodology: `<strong>Data Preparation:</strong> Loaded and explored 26,470 US vehicle listings, focusing on price, odometer readings, condition, model year, and vehicle type. Prepared the dataset for interactive filtering and visual exploration.<br><br>
 <strong>Dashboard Development:</strong> Built a Streamlit app with sidebar filters for condition, vehicle type, model year range, and maximum odometer reading. Added KPI cards for total listings, average price, average odometer, and most common condition.<br><br>
 <strong>Visual Analysis:</strong> Created Plotly charts for odometer distribution, price vs odometer by condition, listings by vehicle type, and price distribution by condition. Included an expandable filtered data table for deeper inspection.<br><br>
 <strong>Deployment:</strong> Published the interactive dashboard on Render so stakeholders can explore the market from a browser without running Python locally.`,
         businessImpact: `The dashboard supports better second-hand car decisions by:<br>
-â€¢ Making price and mileage patterns easy to compare across market segments<br>
-â€¢ Showing how condition changes expected asking prices<br>
-â€¢ Highlighting SUV, truck, and sedan dominance in listing volume<br>
-â€¢ Giving sellers and buyers a quick way to benchmark listings against similar vehicles`,
+Making price and mileage patterns easy to compare across market segments<br>
+Showing how condition changes expected asking prices<br>
+Highlighting SUV, truck, and sedan dominance in listing volume<br>
+Giving sellers and buyers a quick way to benchmark listings against similar vehicles`,
         tools: ["Python", "Pandas", "Streamlit", "Plotly", "Data Visualization", "Exploratory Data Analysis (EDA)", "Dashboard Design", "Render"],
-        result: "Analyzed 51,525 listings with an average price of $12,132 and average odometer of 115,553 km, identifying mileage, condition, and vehicle type as key drivers of second-hand car market behavior.",
+        result: "Analyzed 26,470 listings with an average price of $14,749 and average odometer of 83,788 km, identifying mileage, condition, and vehicle type as key drivers of second-hand car market behavior.",
         dashboardPath: "https://proyecto-sprint7-0nrf.onrender.com",
         githubLink: "https://github.com/Lorena885/Analysis-of-car-adds",
         liveAppLink: "https://proyecto-sprint7-0nrf.onrender.com"
@@ -178,7 +178,7 @@ function renderProjects() {
         4: 'Churn Patterns Identified',
         5: 'Sales Trends Uncovered',
         6: 'F1: 0.59 | AUC: 0.85',
-        7: '51,525 Listings'
+        7: '26,470 Listings'
     };
     
     grid.innerHTML = projects.map(project => `
