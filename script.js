@@ -68,7 +68,7 @@ Companies can shift from reactive operations to data-driven demand planning.`,
         tools: ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Scikit-learn", "Linear Regression", "Bootstrap", "Statistical Analysis", "Data Visualization", "Exploratory Data Analysis (EDA)"],
         result: "Identified Region 1 as optimal investment location â€” lowest risk (0.7%) while meeting business constraints, providing actionable recommendations for $100M capital allocation.",
         dashboardPath: "dashboards/oil-well/index.html",
-        githubLink: "#"
+        githubLink: "https://github.com/Lorena885/Oil-Well-Investment-Prediction-Model"
     },
     {
         id: 4,
