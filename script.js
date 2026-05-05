@@ -308,7 +308,7 @@ function initFilterButtons() {
     });
 
     const activeFilter = document.querySelector('.filter-btn.active');
-    applyFilter(activeFilter ? activeFilter.dataset.filter : 'ml');
+    applyFilter(activeFilter ? activeFilter.dataset.filter : 'all');
 }
 
 function initModal() {
