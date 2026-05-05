@@ -352,7 +352,7 @@ function openProjectModal(projectId) {
     modalTitle.textContent = project.title;
     modalGithubLink.href = project.githubLink;
     modalGithubLink.style.display = project.githubLink && project.githubLink !== '#' ? 'flex' : 'none';
-    const fullDashboardLink = project.liveAppLink || (project.dashboardPath && project.dashboardPath.startsWith('http') ? project.dashboardPath : '');
+    const fullDashboardLink = project.liveAppLink || project.dashboardPath || '';
     
     modalBody.innerHTML = `
         <div class="modal-content-wrapper">
