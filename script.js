@@ -1,4 +1,4 @@
-const projects = [
+﻿const projects = [
     {
         id: 1,
         title: "Customer Age Identification Model",
@@ -9,17 +9,17 @@ const projects = [
         overview: "This project focuses on developing a computer vision model capable of estimating a person's age from facial images using deep learning techniques. The goal was to evaluate whether a convolutional neural network trained with transfer learning could accurately predict real age based on visual facial features. The dataset consists of 7,591 labeled face images with ages ranging from 1 to 100 years old.",
         businessProblem: "Retail businesses need age-based customer segmentation for targeted marketing and personalized experiences. Manual age estimation is time-consuming, inconsistent, and impractical at scale.",
         methodology: `<strong>Exploratory Data Analysis:</strong> Analyzed 7,591 labeled facial images with no missing values. The age distribution spans a wide range from children to elderly individuals, slightly skewed toward younger ages (20-40). Verified image-label correspondence for dataset integrity.<br><br>
-<strong>Data Pipeline and Preprocessing:</strong> Implemented efficient data loading using Keras ImageDataGenerator. Rescaled pixel values, resized images to 224×224 (ResNet50 input), and split into 80/20 training/validation sets. Processed batches dynamically to manage memory efficiently.<br><br>
+<strong>Data Pipeline and Preprocessing:</strong> Implemented efficient data loading using Keras ImageDataGenerator. Rescaled pixel values, resized images to 224Ã—224 (ResNet50 input), and split into 80/20 training/validation sets. Processed batches dynamically to manage memory efficiently.<br><br>
 <strong>Model Architecture:</strong> Built transfer learning model using pretrained ResNet50 as frozen convolutional base. Added custom regression head to predict age from extracted features. ~262,000 trainable parameters adapted specifically for age prediction.<br><br>
 <strong>Model Training:</strong> Trained with Mean Squared Error (MSE) loss, monitored Mean Absolute Error (MAE) as evaluation metric. Implemented early stopping to prevent overfitting, restoring best weights when validation MAE stopped improving.`,
         businessImpact: `Accurate age estimation from facial images enables retail businesses to:<br>
-• Automate customer demographic segmentation at scale<br>
-• Deliver personalized marketing based on visual characteristics<br>
-• Improve customer experience through age-appropriate service delivery<br>
-• Reduce manual effort while maintaining consistent age classification`,
+â€¢ Automate customer demographic segmentation at scale<br>
+â€¢ Deliver personalized marketing based on visual characteristics<br>
+â€¢ Improve customer experience through age-appropriate service delivery<br>
+â€¢ Reduce manual effort while maintaining consistent age classification`,
         tools: ["Python", "Pandas", "TensorFlow", "Keras", "ResNet50", "Transfer Learning", "Computer Vision", "Deep Learning", "Image Processing", "Matplotlib", "Exploratory Data Analysis (EDA)"],
-        result: "Mean Absolute Error (MAE): 8.3 years — achieving accurate age estimation suitable for retail customer analytics and segmentation.",
-        dashboardPath: "dashboards/customer-age/index.html",
+        result: "Mean Absolute Error (MAE): 8.91 years â€” achieving accurate age estimation suitable for retail customer analytics and segmentation.",
+        dashboardPath: "https://lorena885.github.io/CustomerAgeIdentificationModel/",
         githubLink: "https://github.com/Lorena885/CustomerAgeIdentificationModel"
     },
     {
@@ -37,13 +37,13 @@ const projects = [
 <strong>Model Development:</strong> Split data chronologically (preserving temporal order, ensuring future observations were never used to predict past values). Compared multiple regression-based models to predict taxi demand, evaluated using Root Mean Squared Error (RMSE).<br><br>
 <strong>Model Evaluation:</strong> The final model demonstrated ability to capture temporal patterns in taxi demand, producing forecasts that closely followed real demand trends.`,
         businessImpact: `Accurate demand forecasting enables taxi companies to:<br>
-• Improve driver allocation during peak hours<br>
-• Reduce passenger wait times<br>
-• Increase service efficiency<br>
-• Optimize operational resources<br><br>
+â€¢ Improve driver allocation during peak hours<br>
+â€¢ Reduce passenger wait times<br>
+â€¢ Increase service efficiency<br>
+â€¢ Optimize operational resources<br><br>
 Companies can shift from reactive operations to data-driven demand planning.`,
         tools: ["Python", "Pandas", "NumPy", "Time Series Analysis", "Machine Learning", "Feature Engineering", "Scikit-learn", "Data Visualization", "Matplotlib", "Exploratory Data Analysis (EDA)"],
-        result: "RMSE: 43 — actionable hourly predictions enabling accurate demand forecasting to optimize driver allocation and reduce customer wait times.",
+        result: "RMSE: 43 â€” actionable hourly predictions enabling accurate demand forecasting to optimize driver allocation and reduce customer wait times.",
         dashboardPath: "dashboards/taxi-demand/index.html",
         githubLink: "#"
     },
@@ -57,16 +57,16 @@ Companies can shift from reactive operations to data-driven demand planning.`,
         overview: "This project simulates a real-world oil drilling investment decision using machine learning and statistical risk analysis. The objective was to identify the most profitable region to develop 200 new oil wells while minimizing the risk of financial losses. Dataset includes 100,000 wells per region with geological characteristics and estimated oil reserves.",
         businessProblem: "Oil companies need data-driven approaches to evaluate drilling locations and allocate capital efficiently. With a $100M budget for 200 wells and $4.5/barrel pricing, each well must generate at least 111.1 thousand barrels to break even.",
         methodology: `<strong>Data Exploration and Preparation:</strong> Loaded and explored datasets for three regions. Each contained 5 columns: id, three geological features (f0, f1, f2), and target variable (product). Performed initial EDA to inspect data types, detect missing values, and analyze reserve distribution. Found clean datasets with no duplicates.<br><br>
-<strong>Machine Learning Model:</strong> Trained Linear Regression models per region using 75/25 train/validation split. Evaluated using RMSE. Region 0: RMSE ~37.6, high variability. Region 1: RMSE ≈ 0.89, extremely accurate. Region 2: RMSE ~40, highest mean but highest uncertainty.<br><br>
+<strong>Machine Learning Model:</strong> Trained Linear Regression models per region using 75/25 train/validation split. Evaluated using RMSE. Region 0: RMSE ~37.6, high variability. Region 1: RMSE â‰ˆ 0.89, extremely accurate. Region 2: RMSE ~40, highest mean but highest uncertainty.<br><br>
 <strong>Economic Feasibility Analysis:</strong> Calculated profit by ranking wells by predicted reserves, selecting top 200, computing revenue from real reserves, and subtracting investment budget. Initial results suggested Region 0 produced highest potential profit, but profitability alone doesn't capture investment risk.<br><br>
 <strong>Risk Analysis Using Bootstrapping:</strong> Implemented 1000-iteration bootstrap simulation. In each iteration: randomly select 500 wells with replacement, choose top 200 by predicted reserves, compute revenue and profit. Calculated average expected profit, 95% confidence interval, and probability of financial loss.`,
         businessImpact: `The analysis enabled data-driven investment decisions by:<br>
-• Quantifying expected profit per region with statistical confidence<br>
-• Assessing investment risk through probability of loss calculations<br>
-• Identifying Region 1 as optimal despite lower average reserves due to lowest risk profile (0.7% vs 6.9% for other regions)<br>
-• Meeting business requirement of maintaining loss risk below 2.5%`,
+â€¢ Quantifying expected profit per region with statistical confidence<br>
+â€¢ Assessing investment risk through probability of loss calculations<br>
+â€¢ Identifying Region 1 as optimal despite lower average reserves due to lowest risk profile (0.7% vs 6.9% for other regions)<br>
+â€¢ Meeting business requirement of maintaining loss risk below 2.5%`,
         tools: ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Scikit-learn", "Linear Regression", "Bootstrap", "Statistical Analysis", "Data Visualization", "Exploratory Data Analysis (EDA)"],
-        result: "Identified Region 1 as optimal investment location — lowest risk (0.7%) while meeting business constraints, providing actionable recommendations for $100M capital allocation.",
+        result: "Identified Region 1 as optimal investment location â€” lowest risk (0.7%) while meeting business constraints, providing actionable recommendations for $100M capital allocation.",
         dashboardPath: "dashboards/oil-well/index.html",
         githubLink: "#"
     },
@@ -85,10 +85,10 @@ Companies can shift from reactive operations to data-driven demand planning.`,
 <strong>Model Development:</strong> Framed as binary classification problem. Evaluated multiple machine learning models using Scikit-learn. Focused on metrics relevant to churn prediction: Accuracy, Precision, Recall, F1-score, and ROC-AUC. Prioritized recall and ROC-AUC for correctly identifying potential churn customers.<br><br>
 <strong>Model Evaluation:</strong> Best-performing model demonstrated strong predictive capability in distinguishing active vs churned customers. Feature importance analysis revealed contract type, tenure, monthly charges, and internet service type as most influential predictors.`,
         businessImpact: `Accurately predicting churn enables the company to:<br>
-• Identify customers at risk of leaving before they cancel<br>
-• Deploy targeted retention campaigns with personalized offers<br>
-• Improve long-term customer lifetime value<br>
-• Reduce revenue losses associated with customer turnover<br><br>
+â€¢ Identify customers at risk of leaving before they cancel<br>
+â€¢ Deploy targeted retention campaigns with personalized offers<br>
+â€¢ Improve long-term customer lifetime value<br>
+â€¢ Reduce revenue losses associated with customer turnover<br><br>
 Shift from reactive churn management to proactive retention strategies.`,
         tools: ["Python", "Pandas", "NumPy", "Scikit-learn", "Machine Learning", "Classification Models", "Data Preprocessing", "Feature Engineering", "Matplotlib", "Seaborn", "Exploratory Data Analysis (EDA)"],
         result: "Actionable customer risk segmentation to support targeted retention interventions with identified key churn predictors.",
@@ -112,7 +112,7 @@ Shift from reactive churn management to proactive retention strategies.`,
     },
     {
         id: 6,
-        title: "Bank Customer Churn — Beta Bank",
+        title: "Bank Customer Churn â€” Beta Bank",
         category: "ml",
         categoryLabel: "Machine Learning",
         image: "assets/project-pictures/bankcustomer.png",
@@ -121,7 +121,7 @@ Shift from reactive churn management to proactive retention strategies.`,
         businessProblem: "Banking institutions face revenue loss from churn. Early identification enables proactive retention measures.",
         methodology: "Handled class imbalance using SMOTE, undersampling, and class weights. Compared Random Forest and other models. Selected based on F1 and AUC-ROC.",
         tools: ["Python", "Pandas", "Scikit-learn", "Machine Learning", "Random Forest", "Classification", "F1 Score", "AUC-ROC", "Class Imbalance", "Feature Engineering", "Data Preprocessing", "Exploratory Data Analysis (EDA)", "Matplotlib", "Seaborn"],
-        result: "F1 Score: 0.59 | AUC-ROC: 0.85 — prioritized HIGH / MEDIUM / LOW risk customer list.",
+        result: "F1 Score: 0.59 | AUC-ROC: 0.85 â€” prioritized HIGH / MEDIUM / LOW risk customer list.",
         dashboardPath: "https://lorena885.github.io/beta-bank-churn/",
         githubLink: "https://github.com/Lorena885/beta-bank-churn"
     },
@@ -286,25 +286,29 @@ function initNavigation() {
 function initFilterButtons() {
     const filterBtns = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
+    const applyFilter = (filter) => {
+        projectCards.forEach(card => {
+            if (filter === 'all' || card.dataset.category === filter) {
+                card.classList.remove('hidden');
+                card.classList.add('visible');
+            } else {
+                card.classList.add('hidden');
+                card.classList.remove('visible');
+            }
+        });
+    };
     
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             filterBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             
-            const filter = btn.dataset.filter;
-            
-            projectCards.forEach(card => {
-                if (filter === 'all' || card.dataset.category === filter) {
-                    card.classList.remove('hidden');
-                    card.classList.add('visible');
-                } else {
-                    card.classList.add('hidden');
-                    card.classList.remove('visible');
-                }
-            });
+            applyFilter(btn.dataset.filter);
         });
     });
+
+    const activeFilter = document.querySelector('.filter-btn.active');
+    applyFilter(activeFilter ? activeFilter.dataset.filter : 'ml');
 }
 
 function initModal() {
@@ -508,3 +512,4 @@ function initScrollReveal() {
         }
     });
 }
+
